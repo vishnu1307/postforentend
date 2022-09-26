@@ -1,0 +1,27 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input placeholder="Search"
+        class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+        />
+      </div>
+    </div>
+    <div class="col-md-8">
+        <h4>Posts</h4>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let item of posts | filter:searchText"
+          >
+            {{ item.name }}
+            <ul>
+              <li
+              class="list-group-item"
+              *ngFor="let i of item.users"
+            >
+            {{i}}
+            </ul>
+          </li>
+        </ul>
+      </div>
+</div>
